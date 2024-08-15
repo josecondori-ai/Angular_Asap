@@ -1,0 +1,68 @@
+<h1>{{nombre}}</h1>
+<dl>
+    <dt>Nombre:</dt>
+    <dd>{{nombre}}</dd>
+  
+    <dt>Edad:</dt>
+    <dd>{{edad}}</dd>
+  
+
+    <dt>Descripcion</dt>
+    <dd>{{obtenerDescripcion()}}</dd>
+
+
+    <dt>En mayuscula:</dt>
+    <dd>{{capitalizedNombre}}</dd>
+  </dl>
+
+<button
+    *ngIf="nombre!=='Spiderman'"
+   (click)="cambiarHeroe()"
+    class=
+    "btn btn-primary mx-2"
+    >
+    Cambiar nombre
+</button>
+  <button
+  *ngIf="edad!==19"
+  (click)="cambiarEdad()"  class="btn btn-primary ">Cambiar Edad</button>
+
+<!-- 
+javascript
+
+condicionales?
+if  condicional simple
+if else condicional compuesto
+if else if else condicional compuesto
+switch
+
+while(?){}
+condicion?? 
+3 elemento=> variable / operador comparacion / variable o tipo de dato
+(anio >= 18)
+
+
+
+operador logico??  and or 
+
+
+
+-->
+
+  <div *ngIf="heroeEliminado; else nadaFueEliminado">
+      <h4>Heroe borrado: <small class="text-danger">{{heroeEliminado}}</small></h4>
+  </div>
+
+<ng-template #nadaFueEliminado>
+
+    <h4>No borraste nada</h4>
+</ng-template>
+ 
+
+  <button
+  (click)="removerHeroe()"
+   class="btn btn-outline-danger">Borrar ultimo heroe</button>
+  <ul>
+   <li *ngFor="let nombre of nombresHeroes" class="list-group-item" >{{nombre}}</li>
+  </ul>
+
